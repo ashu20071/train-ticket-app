@@ -49,7 +49,7 @@ public class SeatDao implements ISeatDao {
     }
 
     @Override
-    public List<SeatUserProjection> findAllBySection(String section) {
+    public List<SeatUserProjection> findAllTicketsBySection(String section) {
         return seatRepository.findAllTicketAndUserBySection(section);
     }
 

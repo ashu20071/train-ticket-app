@@ -215,13 +215,13 @@ public class TicketServiceTest {
         String section = "A";
         List<SeatUserProjection> projections = Arrays.asList(mock(SeatUserProjection.class), mock(SeatUserProjection.class)); // Setup projections
 
-        when(seatDao.findAllBySection(section)).thenReturn(projections);
+        when(seatDao.findAllTicketsBySection(section)).thenReturn(projections);
 
         FetchAllSectionResponse response = ticketService.viewAllTicketForAllSection(section);
 
         assertNotNull(response);
         assertEquals(projections.size(), response.getSeats().size());
-        verify(seatDao, times(1)).findAllBySection(section);
+        verify(seatDao, times(1)).findAllTicketsBySection(section);
     }
 
     @Test
@@ -297,13 +297,13 @@ public class TicketServiceTest {
         List<SeatUserProjection> projections = List.of(seatUserProjection); // Setup projections
 
 
-        when(seatDao.findAllBySection(section)).thenReturn(projections);
+        when(seatDao.findAllTicketsBySection(section)).thenReturn(projections);
 
         FetchAllSectionResponse response = ticketService.viewAllTicketForAllSection(section);
 
         assertNotNull(response);
         assertEquals(projections.size(), response.getSeats().size());
-        verify(seatDao, times(1)).findAllBySection(section);
+        verify(seatDao, times(1)).findAllTicketsBySection(section);
     }
 
 }

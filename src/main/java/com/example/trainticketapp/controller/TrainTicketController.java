@@ -28,7 +28,7 @@ public class TrainTicketController {
     }
 
     @GetMapping("/ticket/{userId}")
-    public ResponseEntity<BaseResponse> getAllUserTickets(@PathVariable(value = "userId") UUID userId)
+    public ResponseEntity<BaseResponse> getAllTicketsInSection(@PathVariable(value = "userId") UUID userId)
             throws TicketNotFoundException {
         return ResponseEntity.ok(BaseResponse.builder()
                 .data(ticketService.viewUserTicketReceipt(userId))
@@ -37,7 +37,7 @@ public class TrainTicketController {
     }
 
     @GetMapping("/fetch/{section}")
-    public ResponseEntity<BaseResponse> getAllUserTickets(@PathVariable(value = "section") String section) {
+    public ResponseEntity<BaseResponse> getAllTicketsInSection(@PathVariable(value = "section") String section) {
         return ResponseEntity.ok(BaseResponse.builder()
                 .data(ticketService.viewAllTicketForAllSection(section))
                 .code(HttpStatus.OK)
@@ -45,7 +45,7 @@ public class TrainTicketController {
     }
 
     @PostMapping("/book-ticket")
-    public ResponseEntity<BaseResponse> createTicket(@RequestBody BookTicketRequest request)
+    public ResponseEntity<BaseResponse> bookTicket(@RequestBody BookTicketRequest request)
             throws TicketNotFoundException {
         return ResponseEntity.ok(BaseResponse.builder()
                 .data(ticketService.bookTicket(request))

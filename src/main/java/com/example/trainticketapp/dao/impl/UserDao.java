@@ -29,6 +29,7 @@ public class UserDao implements IUserDao {
 
     @Override
     public UserEntity findById(UUID userId) throws TicketNotFoundException {
+        // todo: update the exception to user not found
         return userRepository.findById(userId).orElseThrow(() -> new TicketNotFoundException(
                 String.format("No user with Id : %s found ", userId)
         ));

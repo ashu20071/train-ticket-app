@@ -188,10 +188,10 @@ public class TicketService implements ITicketService {
 
     @Override
     public FetchAllSectionResponse viewAllTicketForAllSection(String section) {
-        List<SeatUserProjection> allBySection = seatDao.findAllBySection(section);
+        List<SeatUserProjection> allTicketsBySection = seatDao.findAllTicketsBySection(section);
 
         return FetchAllSectionResponse.builder()
-                .seats(allBySection.stream()
+                .seats(allTicketsBySection.stream()
                         .map(s -> SeatContext.builder()
                                 .isTaken(s.getIsTaken())
                                 .seatId(s.getSeatId())

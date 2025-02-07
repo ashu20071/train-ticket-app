@@ -21,7 +21,7 @@ public interface ISeatDao {
 
     SeatEntity findById(Long seatId) throws TicketNotFoundException;
 
-    List<SeatUserProjection> findAllBySection(String section);
+    List<SeatUserProjection> findAllTicketsBySection(String section);
 
     SeatEntity findBySeatNumberAndSection(Integer seatNumber, String section) throws TicketNotFoundException;
 }
