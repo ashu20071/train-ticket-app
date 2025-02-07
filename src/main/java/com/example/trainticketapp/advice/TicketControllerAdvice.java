@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Order(0)
 public class TicketControllerAdvice {
-    @ResponseStatus(HttpStatus.FORBIDDEN)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(TicketNotFoundException.class)
     public BaseResponse ticketNotFoundException(TicketNotFoundException exception) {
         log.error("TicketNotFoundException thrown", exception);
